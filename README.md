@@ -1,7 +1,16 @@
 # Pick-and-Deliver-Objects-to-the-Professor
 ## Project Introduction
 
-When people is offering TIAGo a cup, he is able to react to it and take over the cup, then look around searching for Professor and deliver the cup.
+TIAGo is a service robot designed to work in indoor environments.  
+
+In this project, we work with TIAGo for a complete service task: when people is offering TIAGo a cup, he is able to react to it and take over the cup, then look around searching for Professor and deliver the cup.
+
+<p align="center">
+    <img src="pics/tiago.png", width="400">
+    <br>
+</p>
+
+
 
 ## Group Member and Task Split
 
