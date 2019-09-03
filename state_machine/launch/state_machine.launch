@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<launch>
+
+  <!--world and tiago, gazebo-->
+  <include 
+file="$(find tiago_2dnav_gazebo)/launch/tiago_navigation_public.launch"> 
+
+  </include>
+
+
+
+
+    <node pkg="final_state_machine" name="navigation_node" type="navigation_node" />
+    <node pkg="final_state_machine" name="machine_clients" type="machine_clients_node"
+    output="screen" launch-prefix="xterm -e"/>
+   
+
+
+
+</launch>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<launch>
+
+  <arg name="robot"      default="steel"/>
+  <arg name="public_sim" default="true"/>
+  <arg name="gzclient" default="true"/>
+
+  <env name="LC_NUMERIC" value="C" />
+
+  <!-- Gazebo simulation -->
+  <include file="$(find tiago_gazebo)/launch/tiago_gazebo.launch">
+    <arg name="robot"      value="$(arg robot)"/>
+    <arg name="public_sim" value="$(arg public_sim)"/>
+    <arg name="world"      value="robocup_object_test"/>
+    <arg name="gui"      value="$(arg gzclient)"/>
+      <arg name="use_moveit_camera" default="true"/>
+      <arg name="gzpose" default="-x 2.485 -y 0.173195009232 -z 0.0 -R 0.0 -P 0.0 -Y 1.57"/>
+  </include>
+
+
+</launch>

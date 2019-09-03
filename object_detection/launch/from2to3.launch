@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<launch>
+
+
+  <!-- Console launch prefix -->
+  <arg name="launch_prefix" default=""/>
+
+  <!-- Config and weights folder. -->
+  <arg name="yolo_weights_path"          default="$(find darknet_ros)/yolo_network_config/weights"/>
+  <arg name="yolo_config_path"           default="$(find darknet_ros)/yolo_network_config/cfg"/>
+
+  <!-- Load parameters -->
+  <rosparam command="load" ns="darknet_ros" file="$(find darknet_ros)/config/ros.yaml"/>
+  <rosparam command="load" ns="darknet_ros" file="$(find darknet_ros)/config/yolov2-tiny.yaml"/>
+  <remap from="/camera/rgb/image_raw" to="/xtion/rgb/image_rect_color"/>
+
+  <!-- Start darknet and ros wrapper -->
+  <node pkg="darknet_ros" type="darknet_ros" name="darknet_ros" launch-prefix="$(arg launch_prefix)">
+    <param name="weights_path"          value="$(arg yolo_weights_path)" />
+    <param name="config_path"           value="$(arg yolo_config_path)" />
+  </node>
+
+ <!--<node name="republish" type="republish" pkg="image_transport"  args="compressed in:=/front_camera/image_raw raw out:=/camera/image_raw" /> -->
+
+  <arg name="robot" default="steel"/>
+  <arg name="map"   default="$(env HOME)/.pal/tiago_maps/config"/>
+  <arg name="rviz"     default="true"/>
+  <arg name="gzclient"     default="true"/>
+  <arg name="localization"   default="amcl"/>
+  <arg name="use_moveit_camera" default="true"/>
+  <arg name="gzpose"         default="-x 0 -y 0 -z 0 -R 0.0 -P 0.0 -Y 0"/>
+  <arg name="public_sim" default="true"/>
+
+
+
+  <!--world and tiago, gazebo-->
+  <include file="$(find tiago_2dnav_gazebo)/launch/tiago_navigation.launch"> 
+      <arg name="robot"          value="$(arg robot)"/>
+      <arg name="global_planner" value="navfn"/>
+      <arg name="local_planner"  value="eband"/>
+      <arg name="localization"   value="$(arg localization)"/>
+      <arg name="public_sim"     value="True"/>
+      <arg name="gzpose"         value="$(arg gzpose)"/>
+      <arg name="map"            value="$(arg map)"/>
+      <arg name="rviz"           value="$(arg rviz)"/>
+
+   
+  </include>
+
+<node pkg="from2dto3d" type="from2dto3d" name="from2dto3d" output="screen"/>
+
+</launch>

@@ -1,0 +1,8 @@
+<launch>
+<include file="$(find octomap_server)/launch/octomap_mapping.launch"></include>
+
+<rosparam command="load" file="$(find state_maschine)/config/sensors_rgbd.yaml" />
+
+<node pkg="state_maschine" name="manip_octomap_service" type="manip_octomap_service" />
+
+</launch>

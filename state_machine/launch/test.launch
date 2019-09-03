@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<launch>
+
+ <include file="$(find pocketsphinx)/demo/robocup_2.launch"> </include>
+
+ <include file="$(find state_maschine)/launch/pick_demo.launch"> </include>
+
+ 
+ <node pkg="final_state_machine" name="main_node" type="construct_state_machine.py" output="screen" launch-prefix="xterm -e"/>
+ <node pkg="smach_viewer" name="structure_state_machine" type="smach_viewer.py"/>
+ <node pkg="from2dto3d" name="perception_node" type="from2dto3d" />
+ <node pkg="final_state_machine" name="navigation_node" type="navigation_node_1"/>
+ <node pkg="face_detection" name="face_detect_node" type="face.py" />
+ <node pkg="say_something" name="say_something" type="say.py"/>
+ <node pkg="final_state_machine" name="grasping_client" type="grasping_client.py" />
+ <node pkg="gesture_detection" name="gesture_client" type="gesture.py" />
+
+
+</launch>

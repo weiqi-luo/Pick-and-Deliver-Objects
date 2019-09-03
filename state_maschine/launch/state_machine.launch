@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<launch>
+<!-- Console launch prefix -->
+  <arg name="launch_prefix" default=""/>
+
+  <!-- Config and weights folder. -->
+  <arg name="yolo_weights_path"          default="$(find darknet_ros)/yolo_network_config/weights"/>
+  <arg name="yolo_config_path"           default="$(find darknet_ros)/yolo_network_config/cfg"/>
+
+  <!-- Load parameters -->
+  <rosparam command="load" file="$(find state_maschine)/config/pick_motions.yaml" />
+  <rosparam command="load" ns="darknet_ros" file="$(find darknet_ros)/config/ros.yaml"/>
+  <rosparam command="load" ns="darknet_ros" file="$(find darknet_ros)/config/yolov2-tiny.yaml"/>
+  <remap from="/camera/rgb/image_raw" to="/xtion/rgb/image_rect_color"/>
+  <!-- Start darknet and ros wrapper -->
+  <node pkg="darknet_ros" type="darknet_ros" name="darknet_ros" output="screen" launch-prefix="$(arg launch_prefix)">
+    <param name="weights_path"          value="$(arg yolo_weights_path)" />
+    <param name="config_path"           value="$(arg yolo_config_path)" />
+  </node >
+
+
+  <arg name="robot" default="steel"/>
+  <arg name="map"   default="$(env HOME)/.pal/tiago_maps/config"/>
+  <arg name="rviz"     default="true"/>
+  <arg name="gzclient"     default="true"/>
+  <arg name="localization"   default="amcl"/>
+  <!--<arg name="gzpose"         default="-x 2.45 -y 0.013195 -z 0.0 -R 0.0 -P 0.0 -Y 1.57"/>-->
+  <arg name="gzpose"         default="-x 0.0 -y 0.0 -z 0.0 -R 0.0 -P 0.0 -Y 0.0"/>
+  <arg name="public_sim" default="true"/>
+
+
+
+  <!--world and tiago, gazebo-->
+  <include file="$(find state_maschine)/launch/moveit_tiago.launch">
+      <arg name="robot"          value="$(arg robot)"/>
+      <arg name="global_planner" value="navfn"/>
+      <arg name="local_planner"  value="eband"/>
+      <arg name="localization"   value="$(arg localization)"/>
+      <arg name="public_sim"     value="True"/>
+      <arg name="gzpose"         value="$(arg gzpose)"/>
+      <arg name="map"            value="$(arg map)"/>
+      <arg name="rviz"           value="$(arg rviz)"/>
+  </include>
+
+    <node pkg="state_maschine" name="perception_node" type="perception_node" />
+    <node pkg="state_maschine" name="navigation_node" type="navigation_node"/>
+    <node pkg="state_maschine" name="maschine_clients_node" type="maschine_clients_node" output="screen" launch-prefix="xterm -e"/>
+    <node pkg="state_maschine" name="grasp_client" type="grasp_clinent_node" />
+    
+
+  
+  
+  
+
+<!--  <include file="$(find state_maschine)/launch/pick_demo.launch"> </include>-->
+
+</launch>

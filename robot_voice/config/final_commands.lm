@@ -1,0 +1,61 @@
+Language model created by QuickLM on Mon Jul 23 05:42:15 EDT 2018
+Copyright (c) 1996-2010 Carnegie Mellon University and Alexander I. Rudnicky
+
+The model is in standard ARPA format, designed by Doug Paul while he was at MITRE.
+
+The code that was used to produce this language model is available in Open Source.
+Please visit http://www.speech.cs.cmu.edu/tools/ for more information
+
+The (fixed) discount mass is 0.5. The backoffs are computed using the ratio method.
+This model based on a corpus of 9 sentences and 11 words
+
+\data\
+ngram 1=11
+ngram 2=18
+ngram 3=9
+
+\1-grams:
+-0.7782 </s> -0.3010
+-0.7782 <s> -0.2218
+-1.7324 FALSE -0.2218
+-1.7324 NEGATIVE -0.2218
+-1.7324 NO -0.2218
+-1.7324 ONCE -0.2218
+-1.7324 POSITIVE -0.2218
+-1.7324 TRUE -0.2218
+-1.7324 TWICE -0.2218
+-1.7324 WAKE -0.2218
+-1.7324 YES -0.2218
+
+\2-grams:
+-1.2553 <s> FALSE 0.0000
+-1.2553 <s> NEGATIVE 0.0000
+-1.2553 <s> NO 0.0000
+-1.2553 <s> ONCE 0.0000
+-1.2553 <s> POSITIVE 0.0000
+-1.2553 <s> TRUE 0.0000
+-1.2553 <s> TWICE 0.0000
+-1.2553 <s> WAKE 0.0000
+-1.2553 <s> YES 0.0000
+-0.3010 FALSE </s> -0.3010
+-0.3010 NEGATIVE </s> -0.3010
+-0.3010 NO </s> -0.3010
+-0.3010 ONCE </s> -0.3010
+-0.3010 POSITIVE </s> -0.3010
+-0.3010 TRUE </s> -0.3010
+-0.3010 TWICE </s> -0.3010
+-0.3010 WAKE </s> -0.3010
+-0.3010 YES </s> -0.3010
+
+\3-grams:
+-0.3010 <s> FALSE </s>
+-0.3010 <s> NEGATIVE </s>
+-0.3010 <s> NO </s>
+-0.3010 <s> ONCE </s>
+-0.3010 <s> POSITIVE </s>
+-0.3010 <s> TRUE </s>
+-0.3010 <s> TWICE </s>
+-0.3010 <s> WAKE </s>
+-0.3010 <s> YES </s>
+
+\end\
