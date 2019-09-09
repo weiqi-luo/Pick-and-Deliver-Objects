@@ -55,7 +55,7 @@ The bounding boxes obtained with YOLO helps to specify the position of the objec
 
 ### 3. Face Detection based on Python Library Face Recognition 
 
-Face Detection is a Python Library which is built using [dlib](http://dlib.net/)'s face recognition built with deep learning. The model has an accuracy of 99.38% on the [Labeled Faces in the Wild](http://vis-www.cs.umass.edu/lfw/) benchmark.
+[Face Recognition](https://github.com/ageitgey/face_recognition) is a Python Library which is built using [dlib](http://dlib.net/)'s face recognition built with deep learning. The model has an accuracy of 99.38% on the [Labeled Faces in the Wild](http://vis-www.cs.umass.edu/lfw/) benchmark.
 
 With face detection TIAGo is able to distinguish professor from other unknown person and deliver the cup. 
 
