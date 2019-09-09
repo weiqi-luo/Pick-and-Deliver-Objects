@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<launch>
+
+  <!--world and tiago, gazebo-->
+ <node name="state_machine" pkg="final_state_machine" type="final_state_machine.py" output="screen"/>
+
+
+
+</launch>

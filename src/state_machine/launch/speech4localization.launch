@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<launch>
+
+  <include 
+file="$(find tiago_2dnav_gazebo)/launch/tiago_navigation_public.launch"> 
+  </include>
+
+  <include 
+file="$(find pocketsphinx)/demo/robocup_1.launch"> 
+  </include>
+
+    <node pkg="final_state_machine" name="navigation_node" type="navigation_node_1" />
+    <node pkg="final_state_machine" name="main_node" type="construct_state_machine.py" output="screen" launch-prefix="xterm -e"/>
+   
+
+
+
+</launch>

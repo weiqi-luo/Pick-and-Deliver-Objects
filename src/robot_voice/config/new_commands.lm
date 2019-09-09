@@ -1,0 +1,40 @@
+Language model created by QuickLM on Sat Jul 21 10:27:38 EDT 2018
+Copyright (c) 1996-2010 Carnegie Mellon University and Alexander I. Rudnicky
+
+The model is in standard ARPA format, designed by Doug Paul while he was at MITRE.
+
+The code that was used to produce this language model is available in Open Source.
+Please visit http://www.speech.cs.cmu.edu/tools/ for more information
+
+The (fixed) discount mass is 0.5. The backoffs are computed using the ratio method.
+This model based on a corpus of 3 sentences and 6 words
+
+\data\
+ngram 1=6
+ngram 2=7
+ngram 3=4
+
+\1-grams:
+-0.8239 </s> -0.3010
+-0.8239 <s> -0.2304
+-1.3010 NO -0.2304
+-1.3010 UP -0.2304
+-1.3010 WAKE -0.2788
+-1.3010 YES -0.2304
+
+\2-grams:
+-0.7782 <s> NO 0.0000
+-0.7782 <s> WAKE 0.0000
+-0.7782 <s> YES 0.0000
+-0.3010 NO </s> -0.3010
+-0.3010 UP </s> -0.3010
+-0.3010 WAKE UP 0.0000
+-0.3010 YES </s> -0.3010
+
+\3-grams:
+-0.3010 <s> NO </s>
+-0.3010 <s> WAKE UP
+-0.3010 <s> YES </s>
+-0.3010 WAKE UP </s>
+
+\end\

@@ -1,9 +1,0 @@
-positive
-negative
-wake
-yes
-no
-true
-false
-once
-twice
