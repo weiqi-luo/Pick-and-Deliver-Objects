@@ -9,16 +9,6 @@ In this project, we work with the TIAGo robot to execute a service task: When a 
 
 
 
-## Group Member and Task Split
-
-| Group Member |                        Task                         |
-| :----------: | :-------------------------------------------------: |
-|   Ji Chen    | System Integration, Speech Recognition, Navigation  |
-|  Weiqi Luo   | Gesture Detection, Face Detection, Object Detection |
-|  Chao Dong   |                    Manipulation                     |
-
-
-
 ## TIAGo Serving Robot
 
 <p align="center">
@@ -29,7 +19,7 @@ In this project, we work with the TIAGo robot to execute a service task: When a 
 
 
 
-## An Overview of Perception Part
+## Perception Part
 
 ### 1. Gesture Detection based on OpenPose
 
@@ -64,3 +54,26 @@ With face detection TIAGo is able to distinguish professor from other unknown pe
     <br>
 </p>
 
+
+
+## Mapping and Navigation Part
+
+### 1. Record a map with OpenSlam's Gmapping
+
+Using the collected laser and pose data, TIAGo is able create a 2-D occupancy grid map with the help of OpenSlam's Gmapping, which provides a laser-based SLAM library.
+
+<p align="center">
+    <img src="pics/map.png", width="350">
+    <br>
+</p>
+
+
+
+### 2. Navigation with ROS Navigation Stack
+
+The robot navigation functionality is completed using the 2D navigation stack of ROS, which takes in information from odometry, sensor streams as well as a goal pose, and outputs safe velocity commands that are sent to the mobile base of the TIAGo robot.
+
+<p align="center">
+    <img src="pics/nav.png", width="800">
+    <br>
+</p>
